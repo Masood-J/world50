@@ -4,17 +4,32 @@ import { Fade } from "react-awesome-reveal";
 
 export default function TextReveal() {
   const quotes = [
-    `The best way to get started is to quit talking and begin doing.`,
-    `Don’t let yesterday take up too much of today.`,
-    `It’s not whether you get knocked down, it’s whether you get up.`,
-    `If you are working on something exciting, it will keep you motivated.`,
-    `Success is not in what you have, but who you are.`,
-    `Hard work beats talent when talent doesn’t work hard.`,
-    `The only limit to our realization of tomorrow is our doubts of today.`
+    {
+      title: `Their is nowhere on this planet like World 50.`,
+      author:`Tim Campos`,
+      desc:`CIO, Apple`
+    },
+    {
+      title: `In an unpredictable world, World 50 is a 'need to have'.`,
+      author:`Greg Creed`,
+      desc:`Former CEO, YUM! Brands`
+    },
+    {
+      title: `You can't get this kind of collaboration anywhere else`,
+      author:`Wanda Austin`,
+      desc:`Former President & CEO, Aerospace Corporation`
+    },
+    {
+      title: `Don't sell yourself short: If invited, take the call.`,
+      author:`Doug Conant`,
+      desc:`Former CEO, Campbell Soup Company`
+    },
   ];
 
   const [index, setIndex] = useState(0);
-
+  const words = quotes[index].title.split(" ");
+  const authorDelay = words.length * 200 + 500;
+  const descDelay=authorDelay+200;
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % quotes.length);
@@ -22,10 +37,13 @@ export default function TextReveal() {
     return () => clearInterval(interval);
   }, []);
 
+const [delay, setDelay] = useState(0);
+
   return (
-    <div className="flex justify-center items-center h-[200px] px-4 overflow-hidden">
-      <div className="text-2xl md:text-4xl font-bold text-center flex flex-wrap gap-2 text-[#109eda]">
-        {quotes[index].split(" ").map((word, i) => (
+    <div className="flex flex-col justify-center gap-3 h-[200px] px-4 overflow-hidden">
+      <div className="text-3xl md:text-5xl text-center flex flex-wrap gap-2 text-[#109eda] font-oswald font-normal">
+        {quotes[index].title.split(" ").map((word, i) => {
+          return(
           <Fade
             key={`${index}-${i}`}
             direction="right"
@@ -33,9 +51,24 @@ export default function TextReveal() {
             className={``}
           >
             <span>{word}</span>
-          </Fade>
-        ))}
+          </Fade>)
+      })}
       </div>
+      <div>
+
+       <div>
+         <Fade className={`font-inter font-medium text-2xl`} key={`author-${index}`} delay={authorDelay} direction="right">
+           <span className="font-semibold">{quotes[index].author}</span>
+         </Fade>
+         <Fade className={`font-inter font-light text-base`} key={`desc-${index}`} delay={descDelay} direction="right">
+           <div className="text-gray-200">{quotes[index].desc}</div>
+         </Fade>
+        </div>
+
+
+
+      </div>
+
     </div>
   );
 }

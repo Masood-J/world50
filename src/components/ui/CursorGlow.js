@@ -18,6 +18,17 @@ return () => {
   }, []);
 
   return(
-    <div className={`fixed -translate-1/2 bg-gray-400 rounded-full h-50 w-50 opacity-10`} style={{top:mousePos.y,left:mousePos.x}}></div>
+    <div>
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: `radial-gradient(
+            circle 750px at ${mousePos.x}px ${mousePos.y}px,
+            transparent 0%,
+            rgba(0,0,0,1) 100%
+          )`
+        }}
+      ></div>
+    </div>
   )
 }
