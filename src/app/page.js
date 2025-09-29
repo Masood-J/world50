@@ -54,7 +54,7 @@ export default function Home() {
             >
               <h4>Inquire About Eligibility</h4>
               <div
-                className={`z-1 absolute right-[1px] top-[1px] bottom-0 group-hover:w-[34.5px] h-[34.5px] rounded-full w-[1px] group-hover:bg-[#109eda] group-hover:transition-all group-hover:duration-200 delay-100 ease-initial`}
+                className={`z-1 absolute right-[1px] top-[1.5px] bottom-0 group-hover:w-[34.5px] h-[34.5px] rounded-full w-[1px] group-hover:bg-[#109eda] group-hover:transition-all group-hover:duration-200 delay-100 ease-initial`}
               ></div>
               <button className={`z-2 mr-1`}>
                 <ArrowRight
