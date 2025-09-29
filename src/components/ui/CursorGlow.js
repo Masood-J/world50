@@ -25,7 +25,7 @@ return () => {
           background: `radial-gradient(
             circle 750px at ${mousePos.x}px ${mousePos.y}px,
             transparent 0%,
-            rgba(0,0,0,1) 100%
+            #0a0a09 100%
           )`
         }}
       ></div>

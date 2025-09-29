@@ -55,8 +55,10 @@ export default function TextReveal() {
               <Fade
                 key={`${index}-${i}`}
                 direction="right"
-                delay={i * 200} // each word gets a delay
+                distance="5px"
+                delay={i * 250} // each word gets a delay
                 className={``}
+                duration={680}
               >
                 <span>{word}</span>
               </Fade>
@@ -72,25 +74,32 @@ export default function TextReveal() {
         </Fade>
       </div>
       <div>
-        <div className={`px-5`}>
+        <div className={`px-5 w-20 text-nowrap`}>
           <Fade
             className={`font-inter font-medium text-2xl`}
             key={`author-${index}`}
-            delay={authorDelay}
+            delay={authorDelay+70}
             direction="right"
+            duration={700}
           >
             <span className="font-semibold">{quotes[index].author}</span>
           </Fade>
-          <Fade
-            className={`font-inter font-light text-base`}
-            key={`desc-${index}`}
-            delay={descDelay}
-            direction="right"
-          >
-            <div className="text-gray-200">{quotes[index].desc}</div>
-          </Fade>
         </div>
       </div>
+      <div>
+        <div className={`px-5 w-25 text-nowrap -mt-4`}>
+        <Fade
+          className={`font-inter font-light text-base`}
+          key={`desc-${index}`}
+          delay={descDelay+180}
+          direction="right"
+          duration={600}
+        >
+          <div className="text-gray-200">{quotes[index].desc}</div>
+        </Fade>
+        </div>
+      </div>
+
     </div>
   );
 }
